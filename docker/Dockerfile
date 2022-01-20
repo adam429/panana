@@ -174,5 +174,4 @@ RUN \
         logger \
         rails 
 
-
 RUN iruby register --force
