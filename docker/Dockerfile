@@ -164,11 +164,7 @@ RUN \
         red-parquet \
         red-plasma \
         rumale \
-        sqlite3
-
-
-# Install additional gems
-RUN gem install \
+        sqlite3 \
         activerecord \
         awesome_print \
         daru \
@@ -176,6 +172,7 @@ RUN gem install \
         webrick \
         eth \
         logger \
-        rails \
+        rails 
+
 
 RUN iruby register --force
