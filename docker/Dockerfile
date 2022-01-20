@@ -31,6 +31,10 @@ RUN apt-get update && \
             sqlite3 \
             tzdata \
             gnupg2 \
+            autoconf \ 
+            autogen \
+            automake \
+            libtool \
             zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
@@ -172,6 +176,7 @@ RUN \
         webrick \
         eth \
         logger \
-        rails 
+        rails \
+        faraday
 
 RUN iruby register --force

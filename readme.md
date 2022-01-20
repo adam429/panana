@@ -17,6 +17,10 @@ echo \
 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+sudo usermod -aG docker $USER
+
+newgrp docker 
 ```
 
 ## build
@@ -25,5 +29,5 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 ## run
 
-`docker container run -d -p 8888:8888 --name panana panana:latest`
+`docker container run -d -p 80:8888 -v /panana-disk:/home/jovyan/work --name panana panana:latest`
 
