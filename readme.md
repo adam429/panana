@@ -21,6 +21,10 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 
 newgrp docker 
+
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
 ```
 
 ## build
@@ -29,5 +33,5 @@ newgrp docker
 
 ## run
 
-`docker container run -d -p 80:8888 -v /panana-disk:/home/jovyan/work --name panana panana:latest`
+`docker container run -d -p 80:8888 -v /panana-disk/work:/home/jovyan/work --name panana panana:latest`
 

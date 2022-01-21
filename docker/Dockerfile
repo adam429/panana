@@ -177,6 +177,23 @@ RUN \
         eth \
         logger \
         rails \
-        faraday
+        iruby-chartkick
+
+# Install extra gems
+RUN \
+    gem install \
+        descriptive_statistics\
+        awesome_print \
+        nokogiri \
+        activerecord-import \
+        goldiloader \
+        parallel \
+        pycall \
+        moneta \ 
+        chartkick \
+        histogram \
+        dotenv \
+        whenever 
+
 
 RUN iruby register --force
