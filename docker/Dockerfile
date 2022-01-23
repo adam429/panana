@@ -140,7 +140,7 @@ RUN \
     gem install unicode_plot -v ">= 0.0.5" && \
     \
     gem install \
-        activerecord \
+        rails \
         awesome_print \
         daru \
         daru-view \
@@ -169,14 +169,12 @@ RUN \
         red-plasma \
         rumale \
         sqlite3 \
-        activerecord \
         awesome_print \
         daru \
         ethereum.rb \
         webrick \
         eth \
         logger \
-        rails \
         iruby-chartkick
 
 # Install extra gems
@@ -194,6 +192,5 @@ RUN \
         histogram \
         dotenv \
         whenever 
-
 
 RUN iruby register --force
