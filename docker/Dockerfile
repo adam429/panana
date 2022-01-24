@@ -35,6 +35,9 @@ RUN apt-get update && \
             autogen \
             automake \
             libtool \
+            nodejs \
+            npm \
+            node-ws \
             zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
@@ -73,6 +76,7 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 
+RUN npm install -g wscat
 
 
 # Copy Ruby 2.7 from rubylang/ruby
@@ -93,6 +97,7 @@ COPY --from=rubylang/ruby:2.7 \
 COPY --from=rubylang/ruby:2.7 \
      /usr/local/etc/gemrc \
      /usr/local/etc/
+
 
 # # NOTE: DO NOT CHANGE the version in the path of include directory
 COPY --from=rubylang/ruby:2.7 \
@@ -191,6 +196,7 @@ RUN \
         chartkick \
         histogram \
         dotenv \
-        whenever 
+        whenever \
+        pg
 
 RUN iruby register --force
