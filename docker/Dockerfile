@@ -132,6 +132,10 @@ RUN echo "gem: --user-install" >> $HOME/.gemrc
 # # NOTE: DO NOT CHANGE the version in the path of gem's bin directory
 ENV PATH $HOME/.gem/ruby/2.7.0/bin:$PATH
 
+# Install adam429 gems
+COPY Gemfile $HOME/Gemfile
+RUN bundle install
+
 # Install basic gems
 RUN \
     gem install irb -v ">= 1.3.8.pre.9" && \
@@ -176,7 +180,7 @@ RUN \
         sqlite3 \
         awesome_print \
         daru \
-        ethereum.rb \
+   #    ethereum.rb \
         webrick \
         eth \
         logger \
@@ -198,5 +202,7 @@ RUN \
         dotenv \
         whenever \
         pg
+
+
 
 RUN iruby register --force

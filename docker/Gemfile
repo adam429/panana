@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+ruby '2.7.5'
+
+gem 'ethereum.rb', git: 'https://github.com/adam429/ethereum.rb'
+
+
