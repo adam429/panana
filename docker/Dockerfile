@@ -78,6 +78,7 @@ RUN apt update && \
 
 RUN npm install -g wscat
 
+USER $NB_UID
 
 # Copy Ruby 2.7 from rubylang/ruby
 
@@ -132,9 +133,19 @@ RUN echo "gem: --user-install" >> $HOME/.gemrc
 # # NOTE: DO NOT CHANGE the version in the path of gem's bin directory
 ENV PATH $HOME/.gem/ruby/2.7.0/bin:$PATH
 
-# Install adam429 gems
-COPY Gemfile $HOME/Gemfile
-RUN bundle install
+# USER root
+
+# # Install adam429 gems
+# COPY Gemfile $HOME/Gemfile
+# RUN bundle install
+
+USER $NB_UID
+
+RUN git clone https://github.com/adam429/ethereum.rb 
+WORKDIR $HOME/ethereum.rb
+RUN  gem build ethereum.gemspec && \
+     gem install ./ethereum.rb-2.5.gem 
+WORKDIR $HOME
 
 # Install basic gems
 RUN \
@@ -201,7 +212,8 @@ RUN \
         histogram \
         dotenv \
         whenever \
-        pg
+        pg \
+        ruby-prof
 
 
 
