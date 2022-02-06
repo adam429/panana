@@ -29,9 +29,12 @@ sudo systemctl enable containerd.service
 
 ## build
 
-`docker build -t panana docker`
+`docker build -t adam429/pan-repo:panana docker`
 
 ## run
 
-`docker container run -d -p 80:8888 -v /panana-disk/work:/home/jovyan/work --name panana panana:latest`
+`docker container run -d -p 80:8888 -v /panana-disk/work:/home/jovyan/work --name panana adam429/pan-repo:panana`
 
+## push
+
+`docker push adam429/pan-repo:panana`
