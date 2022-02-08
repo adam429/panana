@@ -33,7 +33,7 @@ sudo systemctl enable containerd.service
 
 ## run
 
-`docker container run -d -p 80:8888 -v /panana-disk/work:/home/jovyan/work --name panana adam429/pan-repo:panana`
+`docker container run -d -p 80:8888 --restart=always -v /panana-disk/work:/home/jovyan/work --name panana adam429/pan-repo:panana`
 
 ## push
 
